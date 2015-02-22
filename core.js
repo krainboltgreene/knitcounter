@@ -23,11 +23,21 @@ $("#new_project").on("submit", function(event) {
 
   $("#new_project").toggleClass("hidden");
   $("#counter").toggleClass("hidden");
-  $("#title").text($("#name").val());
-  $("#per_repeat_info").text($("#per_repeat").val());
-  $("#total_repeats_info").text($("#total_repeats").val());
-  $("#needle_info").text($("#needle").val());
-  $("#hook_info").text($("#hook").val());
+  if($("#name").val()) {
+    $("#title").text($("#name").val());
+  };
+  if($("#per_repeat").val()) {
+    $("#per_repeat_info").text($("#per_repeat").val());
+  };
+  if($("#total_repeats").val()) {
+    $("#total_repeats_info").text($("#total_repeats").val());
+  };
+  if($("#needle").val()) {
+    $("#needle_info").text($("#needle").val());
+  };
+  if($("#hook").val()) {
+    $("#hook_info").text($("#hook").val());
+  };
 });
 
 $("#add").on("click", function(event) {
