@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="en" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="en" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Knitcounter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple knit counter">
+    <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.2/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/syntax.css">
+    <link rel="stylesheet" href="/icons.css">
+    <link rel="stylesheet" href="/animations.css">
+    <!--[if IE 7]><link rel="stylesheet" href="/icons.css"><![endif]-->
+    <link rel="stylesheet" href="core.css">
+    <link rel="canonical" href="http://krainboltgreene.github.io/knitcounter/">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header id="header" class="container">
+      <section class="navbar navbar-minimal navbar-static-top" role="navigation">
+        <section class="container">
+          <header class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Knitcounter</a>
+          </header>
+
+          <section class="navbar-collapse collapse">
+            <nav class="nav navbar-nav pull-right">
+              <li>
+                <a href="mailto:me@kurtisrainboltgreene.name">Contact</a>
+              </li>
+            </nav>
+          </section>
+        </section>
+      </section>
+    </header>
+
+    <main id="content" class="container">
+      <section id="counter" class="hidden col-md-6 col-md-offset-3">
+        <header>
+          <h1 id="title" class="text-center">
+            Project Name
+          </h1>
+        </header>
+
+        <p class="text-center text-muted">
+          <span id="per_repeat_info"></span> <strong>Per Repeat</strong>,
+          <span id="total_repeats_info"></span> <strong>Total Repeats</strong>,
+          <span id="needle_info"></span> <strong>Needle</strong>,
+          <span id="hook_info"></span> <strong>Hook</strong>
+        </p>
+        <section class="row">
+          <section class="col-md-6">
+            <h1 id="row" class="text-center">
+              0
+            </h1>
+
+            <p class="text-muted text-center">
+              Row
+            </p>
+          </section>
+
+          <section class="col-md-6">
+            <h1 id="repeats" class="text-center">
+              0
+            </h1>
+
+            <p class="text-muted text-center">
+              Repeats
+            </p>
+          </section>
+        </section>
+        <hr>
+        <section class="row">
+          <section class="col-md-4 text-center">
+            <button type="button" id="lock" class="btn btn-info btn-circle">
+              <i class="fa fa-lock"></i>
+            </button>
+          </section>
+
+          <section class="col-md-4 text-center">
+            <button type="button" id="add" class="btn btn-primary btn-circle btn-xl">
+              <i class="fa fa-plus"></i>
+            </button>
+          </section>
+
+          <section class="col-md-4 text-center">
+            <button type="button" id="subtract" class="btn btn-danger btn-circle">
+              <i class="fa fa-minus"></i>
+            </button>
+          </section>
+        </section>
+      </section>
+
+      <form id="new_project" class="col-md-6 col-md-offset-3">
+        <section class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control text-center" id="name" placeholder="Enter a project name">
+        </section>
+
+        <section class="row">
+          <section class="col-md-6">
+            <section class="form-group">
+              <label for="per_repeat">Per Repeat</label>
+              <input type="text" class="form-control text-center" id="per_repeat" placeholder="The rows per repeat" value="4">
+            </section>
+          </section>
+
+          <section class="col-md-6">
+            <section class="form-group">
+              <label for="total_repeats">Total Repeats</label>
+              <input type="text" class="form-control text-center" id="total_repeats" placeholder="The total number of repeats" value="2">
+            </section>
+          </section>
+        </section>
+
+        <section class="row">
+          <section class="col-md-6">
+            <section class="form-group">
+              <label for="needle">Needle Size</label>
+              <input type="text" class="form-control text-center" id="needle" placeholder="The size of the needle">
+            </section>
+          </section>
+
+          <section class="col-md-6">
+            <section class="form-group">
+              <label for="hook">Hook Size</label>
+              <input type="text" class="form-control text-center" id="hook" placeholder="The size of the hook">
+            </section>
+          </section>
+        </section>
+
+        <button type="submit" id="create_project" class="btn btn-default">
+          Create Project
+        </button>
+
+        <button type="reset" class="btn btn-danger">
+          Reset
+        </button>
+      </form>
+    </main>
+
+    <footer id="footer" class="container">
+      <section id="social" class="col-md-4">
+        <p>
+          Follow me <a href="http://twitter.com/krainboltgreene">via Twitter</a>
+        </p>
+        <p>
+          Friend me <a href="http://facebook.com/krainboltgreene">via Facebook</a>
+        </p>
+        <p>
+          Circle me <a href="http://plus.google.com/+krainboltgreene">via Google+</a>
+        </p>
+        <p>
+          Code with me <a href="http://github.com/krainboltgreene">via Github</a>
+        </p>
+        <p>
+          Connect to me <a href="http://linkedin.com/krainboltgreene">via LinkedIn</a>
+        </p>
+        <p>
+          Or just <a href="mailto:me@kurtisrainboltgreene.name">email me</a>
+        </p>
+      </section>
+
+      <section id="rss" class="col-md-4">
+        <p>
+          Subscribe <a href="/feed.xml">via RSS</a>.
+        </p>
+      </section>
+
+      <section id="copyright" class="col-md-4">
+        <p>
+          This site is Public Domain
+        </p>
+      </section>
+    </footer>
+
+    <script src="core.js"></script>
+  </body>
+</html>
